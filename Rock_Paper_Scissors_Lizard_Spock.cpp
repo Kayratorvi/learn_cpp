@@ -34,11 +34,13 @@ int main() {
     cout << "4) Lizard\n";
     cout << "5) Spock" << endl;
 
+    cout << "Please enter a digit between 1-5: ";
+
     cin >> user;
     cout << endl;
 
     while(user < 1 || user > 5) {
-      cout << "Invalid entry. Please enter 1-5: ";
+      cout << "Invalid entry. Please enter a digit between 1-5: ";
       cin >> user;
       cout << endl;
     }
