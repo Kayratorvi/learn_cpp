@@ -16,6 +16,7 @@ string OutcomeOfChoice(int user, int computer);
 
 int main() {
   int user = 0;
+  int computer = 0;
   char again = 'n';
 
   bool playAgain = false;
@@ -23,7 +24,7 @@ int main() {
   do {
     srand(time(0));
 
-    int computer = rand() % 5 + 1;
+    computer = rand() % 5 + 1;
 
     cout << "Get ready for Rock, Paper, Scissors, Lizard, Spock!\n";
 
