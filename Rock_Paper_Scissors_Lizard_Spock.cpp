@@ -15,6 +15,8 @@ string WhoChoseWhat(int user, int computer);
 string OutcomeOfChoice(int user, int computer);
 
 int main() {
+  srand(time(0));
+
   int user = 0;
   int computer = 0;
   char again = 'n';
@@ -22,8 +24,6 @@ int main() {
   bool playAgain = false;
 
   do {
-    srand(time(0));
-
     computer = rand() % 5 + 1;
 
     cout << "Get ready for Rock, Paper, Scissors, Lizard, Spock!\n";
@@ -181,10 +181,12 @@ string OutcomeOfChoice(int user, int computer) {
         case 5:
           output = "Spock smashes Scissors.";
           break;
-      break;
       }
+      break;
     case 4:
-      output = "Lizard poisons Spock.";
+      if (val2 == 5) {
+        output = "Lizard poisons Spock.";
+      }
       break;
   }
 
