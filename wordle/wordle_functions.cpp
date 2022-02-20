@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
+#include <cctype>
 using namespace std;
 
 void Greet() {
@@ -37,29 +38,33 @@ void CheckUserInput(string& input) {
       cout << endl;
     }
     if (!IsInputLettersOnly(input)) {
-      cout << "Your word contains numbers! Please only use letters: ";
+      cout << "Your word contains numbers or symbols! Please only use letters: ";
       cin >> input;
       cout << endl;
     }
   }
+
+  for (unsigned int i = 0; i < input.length(); ++i) {
+    input.at(i) = toupper(input.at(i));
+  }
 }
 
-void PrintMisses(vector<char> answer) {
-  for (unsigned int i = 0; i < answer.size(); ++i) {
+void PrintMisses(string answer) {
+  for (unsigned int i = 0; i < answer.length(); ++i) {
     cout << answer.at(i) << " ";
   }
   cout << endl;
 }
 
-void DoWordsMatch(string userInput, vector<char> word) {
-  vector<char> answer = {'X', 'X', 'X', 'X', 'X'};
+void DoWordsMatch(string userInput, string word) {
+  string answer = "XXXXX";
 
   for (unsigned int i = 0; i < userInput.length(); i++) {
     if (userInput.at(i) == word.at(i)) {
       answer.at(i) = 'O';
     }
     else {
-      for (unsigned int j = 0; j < word.size(); ++j) {
+      for (unsigned int j = 0; j < word.length(); ++j) {
         if (userInput.at(i) == word.at(j)) {
           answer.at(i) = '*';
         }

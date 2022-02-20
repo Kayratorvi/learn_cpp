@@ -9,6 +9,6 @@ bool IsInputLettersOnly(string input);
 
 void CheckUserInput(string& input);
 
-void PrintMisses(vector<char> answer);
+void PrintMisses(string answer);
 
-void DoWordsMatch(string userInput, vector<char> word);
+void DoWordsMatch(string userInput, string word);
